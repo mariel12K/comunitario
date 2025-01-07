@@ -1,0 +1,17 @@
+-- Crear la base de datos
+CREATE DATABASE liceo;
+
+-- Usar la base de datos
+USE liceo;
+
+-- Crear la tabla de usuarios
+CREATE TABLE usuarios (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
+    role ENUM('usuario', 'coordinador') NOT NULL
+);
+
+-- Insertar usuarios de ejemplo
+INSERT INTO usuarios (username, password, role) VALUES ('usuario1', MD5('password1'), 'usuario');
+INSERT INTO usuarios (username, password, role) VALUES ('coordinador1', MD5('password2'), 'coordinador');
